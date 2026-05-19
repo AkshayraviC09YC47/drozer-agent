@@ -28,7 +28,7 @@ android {
             buildConfigField "boolean", "IS_PENTEST", "true"
             buildConfigField "boolean", "AUTO_PASSWORD", "true"
             buildConfigField "boolean", "AUTO_SSL", "true"
-            resValue "string", "app_name", "drozer Agent (Pentest)"
+            resValue "string", "app_name", "drozer Agent"
         }
     }
 

@@ -124,5 +124,11 @@
     <string name="title_activity_settings">drozer Settings</string>
     <string name="restore_after_crash">Restore after crash</string>
     <string name="restore_summary">Restore state after an unexpected shutdown</string>
+
+    <!-- Credits -->
+    <string name="revamped_by">Revamped by Akshay R (C09YC47)</string>
+    <string name="title_about_c09yc47">About C09YC47</string>
+    <string name="about_c09yc47_summary">View LinkedIn profile</string>
+    <string name="c09yc47_linkedin_url">https://www.linkedin.com/in/c09yc47</string>
     
 </resources>

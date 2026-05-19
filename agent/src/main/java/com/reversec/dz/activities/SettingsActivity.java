@@ -8,6 +8,7 @@ import com.reversec.dz.R;
 import com.reversec.jsolar.api.connectors.Endpoint;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class SettingsActivity extends PreferenceActivity {
 	
 	public static final String ABOUT_DROZER_PREFERENCE = "about_drozer";
+	public static final String ABOUT_C09YC47_PREFERENCE = "about_c09yc47";
 	public static final String ENDPOINT_SETTINGS_PREFERENCE = "endpoint_settings";
 	
 	public static final int NEW_ENDPOINT = 1;
@@ -105,6 +107,21 @@ public class SettingsActivity extends PreferenceActivity {
 			}
 			
 		});
+
+		Preference about_c09yc47 = this.findPreference(ABOUT_C09YC47_PREFERENCE);
+		if (about_c09yc47 != null) {
+			about_c09yc47.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+
+				@Override
+				public boolean onPreferenceClick(Preference preference) {
+					Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+						Uri.parse(getString(R.string.c09yc47_linkedin_url)));
+					startActivity(browserIntent);
+					return true;
+				}
+
+			});
+		}
 		
 		this.endpoint_preferences = (PreferenceCategory)this.getPreferenceManager().findPreference(ENDPOINT_SETTINGS_PREFERENCE);
 		

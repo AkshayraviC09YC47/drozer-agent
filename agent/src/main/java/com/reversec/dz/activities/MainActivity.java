@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
         // Set up MaterialToolbar
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Show version in toolbar subtitle
+        try {
+            String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+            toolbar.setSubtitle("v" + versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            // ignore
+        }
         
         this.endpoint_list_view = (EndpointListView)this.findViewById(R.id.endpoint_list_view);
         this.endpoint_list_view.setAdapter(new EndpointAdapter(this.getApplicationContext(), Agent.getInstance().getEndpointManager(),
