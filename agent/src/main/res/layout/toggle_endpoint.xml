@@ -2,14 +2,14 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
-    <CheckBox
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/endpoint_enabled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/enabled" />
-    
+        android:text="@string/enabled"
+        android:textColor="@color/textPrimary"
+        android:fontFamily="sans-serif-medium" />
+
 </merge>

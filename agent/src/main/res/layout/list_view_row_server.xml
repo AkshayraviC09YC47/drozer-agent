@@ -1,46 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="2dp"
-    android:paddingBottom="2dp" >
-    
-    <TextView
-        android:id="@+id/adb_server_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/embedded_server"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    <TextView
-        android:id="@+id/adb_server_port"
+    app:cardBackgroundColor="@color/colorSurfaceVariant"
+    app:cardCornerRadius="14dp"
+    app:strokeColor="@color/colorOutline"
+    app:strokeWidth="1dp"
+    app:contentPadding="14dp"
+    app:rippleColor="@color/ripple"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/adb_server_name"
-        android:layout_toLeftOf="@+id/adb_server_toggle"
-        android:text="@string/embedded_server_port"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:maxLines="4" />
+        android:gravity="center_vertical">
 
-    <com.reversec.dz.views.ConnectorStatusIndicator
-        android:id="@+id/adb_server_status_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/adb_server_name"
-        android:layout_alignBottom="@+id/adb_server_name"
-        android:layout_toRightOf="@+id/adb_server_name"
-        android:layout_marginLeft="5dip" />
+        <!-- ── Server info (left) ── -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/adb_server_toggle"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:paddingEnd="12dp">
 
-    <ToggleButton
-        android:id="@+id/adb_server_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/adb_server_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/embedded_server"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <com.reversec.dz.views.ConnectorStatusIndicator
+                    android:id="@+id/adb_server_status_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/adb_server_port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/embedded_server_port"
+                android:textColor="@color/textSecondary"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:maxLines="4" />
+
+        </LinearLayout>
+
+        <!-- ── Toggle (right) ── -->
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/adb_server_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

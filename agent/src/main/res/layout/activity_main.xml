@@ -1,32 +1,95 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
 
-    <ImageView
-        android:id="@+id/drozer_graphic"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/drozer"
-        android:contentDescription="@string/app_name" />
-
-    <com.reversec.dz.views.EndpointListView
-        android:id="@+id/endpoint_list_view"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/server_list_row_view"
-        android:layout_below="@id/drozer_graphic"
-        android:layout_alignParentLeft="true" />
-    
-    <com.reversec.dz.views.ServerListRowView
-        android:id="@+id/server_list_row_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true" />
+        android:background="@color/colorBackground"
+        app:elevation="0dp">
 
-</RelativeLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/textPrimary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ── Header with logo ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_gradient"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp">
+
+                <ImageView
+                    android:id="@+id/drozer_graphic"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:src="@drawable/drozer"
+                    android:contentDescription="@string/app_name" />
+
+            </LinearLayout>
+
+            <!-- ── Endpoints section ── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/endpoint_name"
+                style="@style/AppTheme.SectionHeader"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp" />
+
+            <com.reversec.dz.views.EndpointListView
+                android:id="@+id/endpoint_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="8dp"
+                android:clipToPadding="false" />
+
+            <!-- ── Server section ── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/embedded_server"
+                style="@style/AppTheme.SectionHeader"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp" />
+
+            <com.reversec.dz.views.ServerListRowView
+                android:id="@+id/server_list_row_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

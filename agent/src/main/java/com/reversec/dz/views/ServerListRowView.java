@@ -18,7 +18,6 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import com.reversec.dz.BuildConfig;
 import com.reversec.dz.R;
@@ -36,7 +35,7 @@ public class ServerListRowView extends LinearLayout implements Observer, OnCheck
 	
 	private TextView adb_server_port_field = null;
 	private ConnectorStatusIndicator adb_server_status_indicator = null;
-	private ToggleButton adb_server_toggle_button = null;
+	private CompoundButton adb_server_toggle_button = null;
 	private Server server_parameters = null;
 	
 	private OnServerViewListener server_view_listener;
@@ -58,11 +57,9 @@ public class ServerListRowView extends LinearLayout implements Observer, OnCheck
 	private void initView() {
 		this.addView(View.inflate(this.getContext(), R.layout.list_view_row_server, null));
 
-		this.setBackgroundResource(android.R.drawable.list_selector_background);
-
 		this.adb_server_port_field = (TextView)this.findViewById(R.id.adb_server_port);
 		this.adb_server_status_indicator = (ConnectorStatusIndicator)this.findViewById(R.id.adb_server_status_indicator);
-		this.adb_server_toggle_button = (ToggleButton)this.findViewById(R.id.adb_server_toggle);
+		this.adb_server_toggle_button = (CompoundButton)this.findViewById(R.id.adb_server_toggle);
 		
 		this.adb_server_toggle_button.setOnCheckedChangeListener(this);
 	}

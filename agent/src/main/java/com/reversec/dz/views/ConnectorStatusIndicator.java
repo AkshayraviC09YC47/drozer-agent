@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.core.content.ContextCompat;
 
 public class ConnectorStatusIndicator extends LinearLayout implements Observer {
 	
@@ -41,7 +42,7 @@ public class ConnectorStatusIndicator extends LinearLayout implements Observer {
 	}
 	
 	private void setUpView() {
-		this.animation = (AnimationDrawable)getResources().getDrawable(R.drawable.ic_stat_connecting);
+		this.animation = (AnimationDrawable) ContextCompat.getDrawable(getContext(), R.drawable.ic_stat_connecting);
 		
 		this.status_image = new ImageView(this.getContext());
 		this.addView(this.status_image);
@@ -55,7 +56,7 @@ public class ConnectorStatusIndicator extends LinearLayout implements Observer {
 		
 		switch(connector_parameters.getStatus()) {
 		case ACTIVE:
-			this.status_image.setImageDrawable(getResources().getDrawable(R.drawable.ic_stat_active));
+			this.status_image.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_stat_active));
 			break;
 			
 		case CONNECTING:
@@ -75,19 +76,19 @@ public class ConnectorStatusIndicator extends LinearLayout implements Observer {
 			break;
 			
 		case OFFLINE:
-			this.status_image.setImageDrawable(getResources().getDrawable(R.drawable.ic_stat_offline));
+			this.status_image.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_stat_offline));
 			break;
 			
 		case ONLINE:
-			this.status_image.setImageDrawable(getResources().getDrawable(R.drawable.ic_stat_online));
+			this.status_image.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_stat_online));
 			break;
 			
 		case UNKNOWN:
-			this.status_image.setImageDrawable(getResources().getDrawable(R.drawable.ic_stat_unknown));
+			this.status_image.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_stat_unknown));
 			break;
 			
 		case UPDATING:
-			this.status_image.setImageDrawable(getResources().getDrawable(R.drawable.ic_stat_unknown));
+			this.status_image.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_stat_unknown));
 			break;
 		}
 	}

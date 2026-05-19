@@ -4,10 +4,12 @@ import com.reversec.dz.R;
 import com.reversec.jsolar.logger.LogMessage;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.content.ContextCompat;
 
 public class LogMessageRowView extends LinearLayout {
 	
@@ -28,44 +30,63 @@ public class LogMessageRowView extends LinearLayout {
 	}
 	
 	private void setLevel(int level) {
+		int bgColorRes;
+		int textColorRes;
+		int textRes;
+
 		switch(level) {
 		case LogMessage.ASSERT:
-			this.message_label.setText(R.string.log_level_tag_assert);
-			this.message_label.setBackgroundColor(0xffff0000);
-			this.message_label.setTextColor(0xffffffff);
+			textRes = R.string.log_level_tag_assert;
+			bgColorRes = R.color.logAssertBg;
+			textColorRes = R.color.logAssertText;
 			break;
 			
 		case LogMessage.DEBUG:
-			this.message_label.setText(R.string.log_level_tag_debug);
-			this.message_label.setBackgroundColor(0xff00ff00);
-			this.message_label.setTextColor(0xff000000);
+			textRes = R.string.log_level_tag_debug;
+			bgColorRes = R.color.logDebugBg;
+			textColorRes = R.color.logDebugText;
 			break;
 		
 		case LogMessage.ERROR:
-			this.message_label.setText(R.string.log_level_tag_error);
-			this.message_label.setBackgroundColor(0xffff0000);
-			this.message_label.setTextColor(0xffffffff);
+			textRes = R.string.log_level_tag_error;
+			bgColorRes = R.color.logErrorBg;
+			textColorRes = R.color.logErrorText;
 			break;
 			
 		case LogMessage.INFO:
-			this.message_label.setText(R.string.log_level_tag_info);
+			textRes = R.string.log_level_tag_info;
+			bgColorRes = R.color.logInfoBg;
+			textColorRes = R.color.logInfoText;
 			break;
 			
 		case LogMessage.VERBOSE:
-			this.message_label.setText(R.string.log_level_tag_verbose);
-			this.message_label.setBackgroundColor(0xff00ff00);
-			this.message_label.setTextColor(0xff000000);
+			textRes = R.string.log_level_tag_verbose;
+			bgColorRes = R.color.logVerboseBg;
+			textColorRes = R.color.logVerboseText;
 			break;
 			
 		case LogMessage.WARN:
-			this.message_label.setText(R.string.log_level_tag_warn);
-			this.message_label.setBackgroundColor(0xffffa500);
-			this.message_label.setTextColor(0xff000000);
+			textRes = R.string.log_level_tag_warn;
+			bgColorRes = R.color.logWarnBg;
+			textColorRes = R.color.logWarnText;
 			break;
 			
 		default:
-			this.message_label.setText(R.string.log_level_tag_unknown);
+			textRes = R.string.log_level_tag_unknown;
+			bgColorRes = R.color.logUnknownBg;
+			textColorRes = R.color.logUnknownText;
 			break;
+		}
+
+		this.message_label.setText(textRes);
+		this.message_label.setTextColor(ContextCompat.getColor(getContext(), textColorRes));
+
+		// Tint the badge background drawable
+		GradientDrawable badge = (GradientDrawable) ContextCompat.getDrawable(getContext(), R.drawable.log_badge_background);
+		if (badge != null) {
+			badge = (GradientDrawable) badge.mutate();
+			badge.setColor(ContextCompat.getColor(getContext(), bgColorRes));
+			this.message_label.setBackground(badge);
 		}
 	}
 	

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DROZER AGENT — MATERIAL 3 DARK PALETTE
+         A premium cybersecurity aesthetic: deep dark surfaces,
+         vibrant purple primary, and teal secondary.
+         ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Primary (Deep Purple) -->
+    <color name="colorPrimary">#BB86FC</color>
+    <color name="colorPrimaryDark">#7C4DFF</color>
+    <color name="colorPrimaryVariant">#6200EE</color>
+    <color name="colorOnPrimary">#000000</color>
+
+    <!-- Secondary (Teal / Cyan) -->
+    <color name="colorSecondary">#03DAC6</color>
+    <color name="colorSecondaryVariant">#018786</color>
+    <color name="colorOnSecondary">#000000</color>
+
+    <!-- Tertiary -->
+    <color name="colorTertiary">#CF6679</color>
+    <color name="colorOnTertiary">#000000</color>
+
+    <!-- Surfaces & Backgrounds -->
+    <color name="colorBackground">#0D0D0D</color>
+    <color name="colorSurface">#1A1A2E</color>
+    <color name="colorSurfaceVariant">#1E1E2E</color>
+    <color name="colorSurfaceElevated">#252540</color>
+    <color name="colorOnBackground">#E1E1E6</color>
+    <color name="colorOnSurface">#E1E1E6</color>
+    <color name="colorOnSurfaceVariant">#A0A0B0</color>
+
+    <!-- Outline -->
+    <color name="colorOutline">#2A2A3E</color>
+    <color name="colorOutlineVariant">#3A3A50</color>
+
+    <!-- Error -->
+    <color name="colorError">#FF5252</color>
+    <color name="colorOnError">#FFFFFF</color>
+
+    <!-- ── Status Indicators ── -->
+    <color name="statusActive">#00E676</color>
+    <color name="statusOnline">#03DAC6</color>
+    <color name="statusOffline">#FF5252</color>
+    <color name="statusConnecting">#FFC107</color>
+    <color name="statusUnknown">#757575</color>
+
+    <!-- ── Log Level Colors ── -->
+    <color name="logAssertBg">#B71C1C</color>
+    <color name="logAssertText">#FFFFFF</color>
+    <color name="logErrorBg">#D32F2F</color>
+    <color name="logErrorText">#FFFFFF</color>
+    <color name="logWarnBg">#F57F17</color>
+    <color name="logWarnText">#000000</color>
+    <color name="logDebugBg">#2E7D32</color>
+    <color name="logDebugText">#FFFFFF</color>
+    <color name="logVerboseBg">#1565C0</color>
+    <color name="logVerboseText">#FFFFFF</color>
+    <color name="logInfoBg">#37474F</color>
+    <color name="logInfoText">#E0E0E0</color>
+    <color name="logUnknownBg">#424242</color>
+    <color name="logUnknownText">#BDBDBD</color>
+
+    <!-- ── Gradient stops ── -->
+    <color name="headerGradientStart">#1A0A2E</color>
+    <color name="headerGradientEnd">#0D0D0D</color>
+
+    <!-- ── Misc ── -->
+    <color name="textPrimary">#F0F0F5</color>
+    <color name="textSecondary">#A0A0B0</color>
+    <color name="textHint">#606070</color>
+    <color name="divider">#1F1F30</color>
+    <color name="ripple">#33BB86FC</color>
+    <color name="dangerRed">#FF5252</color>
+    <color name="dangerRedDark">#D32F2F</color>
+    <color name="switchTrackOn">#7C4DFF</color>
+    <color name="switchTrackOff">#3A3A50</color>
+
+</resources>

@@ -15,7 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.provider.Settings;
 import android.view.Menu;
@@ -27,9 +27,10 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.reversec.dz.util.PentestPasswordManager;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
 	private static final int REQUEST_CODE_PENTEST_PERMISSIONS = 42;
 
@@ -55,6 +56,10 @@ public class MainActivity extends Activity {
         PentestPasswordManager.ensureSecurityDefaults(this.getApplicationContext());
 
         setContentView(R.layout.activity_main);
+
+        // Set up MaterialToolbar
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         
         this.endpoint_list_view = (EndpointListView)this.findViewById(R.id.endpoint_list_view);
         this.endpoint_list_view.setAdapter(new EndpointAdapter(this.getApplicationContext(), Agent.getInstance().getEndpointManager(),

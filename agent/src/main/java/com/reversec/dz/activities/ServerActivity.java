@@ -3,6 +3,7 @@ package com.reversec.dz.activities;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.reversec.dz.Agent;
 import com.reversec.dz.R;
 import com.reversec.dz.views.CheckListItemView;
@@ -51,6 +52,13 @@ public class ServerActivity extends ConnectorActivity implements Observer, Serve
         super.onCreate(savedInstanceState);
         
         this.setContentView(R.layout.activity_server);
+
+        // Set up MaterialToolbar with back navigation
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         
         this.server_status_indicator = (ConnectorStatusIndicator)this.findViewById(R.id.server_status_indicator);
         

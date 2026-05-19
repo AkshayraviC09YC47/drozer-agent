@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.reversec.dz.Agent;
 import com.reversec.dz.R;
 import com.reversec.dz.views.CheckListItemView;
@@ -53,6 +54,13 @@ public class EndpointActivity extends ConnectorActivity implements Observer, End
         Bundle extras = this.getIntent().getExtras();
         
         this.setContentView(R.layout.activity_endpoint);
+
+        // Set up MaterialToolbar with back navigation
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         
         this.endpoint_status_indicator = (ConnectorStatusIndicator)this.findViewById(R.id.endpoint_status_indicator);
         

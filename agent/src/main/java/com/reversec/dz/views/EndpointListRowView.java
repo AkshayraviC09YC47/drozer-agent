@@ -12,18 +12,16 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 public class EndpointListRowView extends LinearLayout implements Observer, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 	
 	private Endpoint endpoint = null;
 	private TextView endpoint_connection_string_field = null;
-	private RelativeLayout endpoint_detail_layout = null;
+	private View endpoint_detail_layout = null;
 	private TextView endpoint_name_field = null;
 	private ConnectorStatusIndicator endpoint_status_indicator = null;
-	private ToggleButton endpoint_toggle_button = null;
+	private CompoundButton endpoint_toggle_button = null;
 	
 	private EndpointAdapter.OnEndpointSelectListener endpoint_listener = null;
 	
@@ -65,10 +63,10 @@ public class EndpointListRowView extends LinearLayout implements Observer, Compo
 		this.addView(View.inflate(this.getContext(), R.layout.list_view_row_endpoint, null));
 		
 		this.endpoint_connection_string_field = (TextView)this.findViewById(R.id.endpoint_connection_string);
-		this.endpoint_detail_layout = (RelativeLayout)this.findViewById(R.id.list_view_row_endpoint);
+		this.endpoint_detail_layout = this.findViewById(R.id.list_view_row_endpoint);
 		this.endpoint_name_field = (TextView)this.findViewById(R.id.endpoint_name);
 		this.endpoint_status_indicator = (ConnectorStatusIndicator)this.findViewById(R.id.endpoint_status_indicator);
-		this.endpoint_toggle_button = (ToggleButton)this.findViewById(R.id.endpoint_toggle);
+		this.endpoint_toggle_button = (CompoundButton)this.findViewById(R.id.endpoint_toggle);
 		
 		this.endpoint_detail_layout.setOnClickListener(this);
 		this.endpoint_toggle_button.setOnCheckedChangeListener(this);

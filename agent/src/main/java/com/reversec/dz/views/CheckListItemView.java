@@ -6,14 +6,13 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class CheckListItemView extends LinearLayout {
 
 	private TextView label = null;
-	private ImageView status = null;
+	private View statusDot = null;
 	
 	public CheckListItemView(Context context) {
 		super(context);
@@ -43,14 +42,14 @@ public class CheckListItemView extends LinearLayout {
 	}
 	
 	public void setStatus(boolean status) {
-		this.status.setImageResource(status ? android.R.drawable.button_onoff_indicator_on : android.R.drawable.button_onoff_indicator_off);
+		this.statusDot.setBackgroundResource(status ? R.drawable.status_dot_on : R.drawable.status_dot_off);
 	}
 
 	private void setUpView() {
 		this.addView(View.inflate(this.getContext(), R.layout.check_list_item, null));
 		
 		this.label = (TextView)this.findViewById(R.id.check_list_item_label);
-		this.status = (ImageView)this.findViewById(R.id.check_list_item_status);
+		this.statusDot = this.findViewById(R.id.check_list_item_status);
 	}
 	
 }

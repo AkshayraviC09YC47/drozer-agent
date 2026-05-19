@@ -6,18 +6,17 @@ import com.reversec.dz.Agent;
 import com.reversec.dz.R;
 import com.reversec.jsolar.api.connectors.Connector;
 
-import android.app.Activity;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-public abstract class ConnectorActivity extends Activity {
+public abstract class ConnectorActivity extends AppCompatActivity {
     
     public static class IncomingFingerprintHandler extends Handler {
 		
@@ -41,26 +40,18 @@ public abstract class ConnectorActivity extends Activity {
 	}
     
     protected Dialog createInformationDialog(int titleId, int messageId) {
-    	return new AlertDialog.Builder(this)
+    	return new MaterialAlertDialogBuilder(this)
     		.setTitle(titleId)
     		.setMessage(messageId)
-    		.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
-    		
-    			public void onClick(DialogInterface dialog, int id) {}
-            
-    		})
+    		.setNeutralButton(R.string.ok, (dialog, id) -> {})
     		.create();
     }
     
     protected Dialog createInformationDialog(int titleId, String message) {
-    	return new AlertDialog.Builder(this)
+    	return new MaterialAlertDialogBuilder(this)
     		.setTitle(titleId)
     		.setMessage(message)
-    		.setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
-    		
-    			public void onClick(DialogInterface dialog, int id) {}
-            
-    		})
+    		.setNeutralButton(R.string.ok, (dialog, id) -> {})
     		.create();
     }
 
@@ -79,6 +70,10 @@ public abstract class ConnectorActivity extends Activity {
 			
 		case R.id.refresh_status:
 			this.refreshStatus();
+			return true;
+
+		case android.R.id.home:
+			this.finish();
 			return true;
 			
 		default:
